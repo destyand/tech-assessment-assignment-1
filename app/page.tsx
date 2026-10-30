@@ -22,7 +22,6 @@ export default async function Dashboard() {
 					<span className="orbit-mark">◉</span> orbit
 					<span className="logo-dot">.</span>
 				</Link>
-
 				<nav>
 					<Link href="/" className="nav-active">
 						Discover

@@ -24,8 +24,8 @@ export default function Catalog() {
 
     useEffect(() => {
         dispatch(fetchAllProducts(filters) as any)
-    }, [filters])
-
+		}, [filters])
+	
     return (
         <section>
             <section className="collection-heading" id="devices">
@@ -119,7 +119,7 @@ export default function Catalog() {
                                     </p>
                                     <div className="product-bottom">
                                         <strong>
-                                            {p.priceLabel}
+																						{p.price.amount}
                                             <small> USD</small>
                                         </strong>
                                         <span className="circle-arrow">
