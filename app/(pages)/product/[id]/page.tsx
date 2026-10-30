@@ -22,6 +22,8 @@ import { getProductDetailController } from '../../../../features/catalog-detail/
 import { CatalogDetailType } from '../../../../features/catalog-detail/domain/catalog-detail.entity';
 import { getCurrentBalanceController } from '../../../../features/balance/controller/balance.controller';
 import ProductImage from '../../../shared/presentation/components/molecules/ProductImage';
+import { checkoutMapper } from '../../../../features/checkout/infrastructure/api/checkout.mapper';
+import { postCheckoutController } from '../../../../features/checkout/controller/user.controller';
 
 export default function Detail({ params }: { params: Promise<{ id: string }> }) {
 	const { id } = use(params);
@@ -60,6 +62,20 @@ export default function Detail({ params }: { params: Promise<{ id: string }> }) 
 		fetchData();
 	}, [])
 
+	async function buy() {
+		if (busy || done) return;
+		setBusy(true);
+		setErr('');
+		try {
+			const payload = checkoutMapper.toPayload({ id: data?.id ?? '', price: data?.price.toString() ?? '' });
+			const result = await postCheckoutController(payload);
+			setDone(result);
+		} catch (e) {
+			setErr(e instanceof Error ? e.message : 'Purchase failed. Please try again.');
+		} finally {
+			setBusy(false);
+		}
+	}
 
 	return (
 		<>
@@ -150,7 +166,7 @@ export default function Detail({ params }: { params: Promise<{ id: string }> }) 
 							<button
 								className="primary-button buy"
 								disabled={busy || !!done}
-								onClick={() => { }}
+								onClick={buy}
 							>
 								{busy ? (
 									<>
