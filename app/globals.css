@@ -400,6 +400,12 @@ select {
 	--wall: #b9a489;
 }
 
+.product-art img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
 .sand {
 	background: #f0ede7;
 	--body: #c6b49b;
