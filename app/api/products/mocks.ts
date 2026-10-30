@@ -14,6 +14,7 @@ export const mocks = [
 		camera: '48 MP',
 		battery: 'Up to 27 hours',
 		os: 'iOS 18',
+		image: 'https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=800&q=80',
 	},
 	{
 		id: '2',
@@ -30,6 +31,7 @@ export const mocks = [
 		camera: '200 MP',
 		battery: '5,000 mAh',
 		os: 'Android 15',
+		image: 'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=800&q=80',
 	},
 	{
 		id: '3',
@@ -46,6 +48,7 @@ export const mocks = [
 		camera: '12 MP',
 		battery: 'Up to 10 hours',
 		os: 'iPadOS 18',
+		image: 'https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=800&q=80',
 	},
 	{
 		id: '4',
@@ -62,6 +65,7 @@ export const mocks = [
 		camera: '50 MP',
 		battery: '4,700 mAh',
 		os: 'Android 14',
+		image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80',
 	},
 	{
 		id: '5',
@@ -78,6 +82,7 @@ export const mocks = [
 		camera: '13 MP',
 		battery: '10,090 mAh',
 		os: 'Android 14',
+		image: 'https://images.unsplash.com/photo-1561154464-82e9adf32764?auto=format&fit=crop&w=800&q=80',
 	},
 	{
 		id: '6',
@@ -94,5 +99,6 @@ export const mocks = [
 		camera: '48 MP',
 		battery: 'Up to 22 hours',
 		os: 'iOS 18',
+		image: 'https://images.unsplash.com/photo-1678685888221-cda773a3dcdb?auto=format&fit=crop&w=800&q=80',
 	},
 ]
