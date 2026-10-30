@@ -19,7 +19,8 @@ describe("catalogDetailMapper", () => {
 			camera: "12 MP",
 			battery: "Up to 10 hours",
 			os: "iPadOS 18",
-			image: ''
+			image: '',
+			stock: 0
 		};
 
 		const result = catalogDetailMapper.toDomain(dto);
@@ -39,7 +40,8 @@ describe("catalogDetailMapper", () => {
 			camera: "12 MP",
 			battery: "Up to 10 hours",
 			os: "iPadOS 18",
-			image: ''
+			image: '',
+			stock: 0
 		});
 	});
 });

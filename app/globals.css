@@ -975,6 +975,22 @@ footer>span {
 	background: #c8102e;
 }
 
+.out-stock {
+	font-size: 10px;
+	color: #92958b;
+	display: flex;
+	align-items: center;
+	gap: 7px;
+	margin: 29px 0 13px;
+}
+
+.out-stock span {
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background: #92958b;
+}
+
 .primary-button {
 	border: 0;
 	border-radius: 8px;

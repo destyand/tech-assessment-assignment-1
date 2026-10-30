@@ -20,6 +20,7 @@ export const catalogDetailMapper = {
 			battery: dto.battery,
 			os: dto.os,
 			image: dto.image,
+			stock: dto.stock,
 		}
 	}
 }

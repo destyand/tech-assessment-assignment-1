@@ -15,6 +15,7 @@ export type ProductDetailDto = {
 	battery: string;
 	os: string;
 	image: string;
+	stock: number;
 };
 
 export type GetProductDetailResponse = {

@@ -27,9 +27,7 @@ import { postCheckoutController } from '../../../../features/checkout/controller
 
 export default function Detail({ params }: { params: Promise<{ id: string }> }) {
 	const { id } = use(params);
-	// const dispatch = useDispatch();
 
-	// console.log('balance', balance);
 	const [busy, setBusy] = useState(false);
 	const [done, setDone] = useState<any>(null);
 	const [err, setErr] = useState('');
@@ -56,7 +54,6 @@ export default function Detail({ params }: { params: Promise<{ id: string }> }) 
 			if (productDetail?.price > balance) {
 				setDone(true);
 			}
-
 		}
 
 		fetchData();
@@ -155,9 +152,15 @@ export default function Detail({ params }: { params: Promise<{ id: string }> }) 
 									</div>
 								))}
 							</div>
-							<div className="in-stock">
-								<span /> In stock. Ready for your next chapter.
-							</div>
+							{data?.stock > 0 ? (
+								<div className="in-stock">
+									<span /> In stock. Ready for your next chapter.
+								</div>
+							) : (
+								<div className="out-stock">
+									<span /> Out of stock. Check back soon for availability.
+								</div>
+							)}
 							{err && (
 								<p role="alert" className="error">
 									{err}
@@ -165,7 +168,7 @@ export default function Detail({ params }: { params: Promise<{ id: string }> }) 
 							)}
 							<button
 								className="primary-button buy"
-								disabled={busy || !!done}
+								disabled={data?.stock === 0 || busy || !!done}
 								onClick={buy}
 							>
 								{busy ? (

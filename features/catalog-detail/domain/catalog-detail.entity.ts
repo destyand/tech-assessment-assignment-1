@@ -14,4 +14,5 @@ export type CatalogDetailType = {
 	battery: string;
 	os: string;
 	image?: string;
+	stock: number;
 }
