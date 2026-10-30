@@ -22,10 +22,11 @@ import { getProductDetailController } from '../../../../features/catalog-detail/
 import { CatalogDetailType } from '../../../../features/catalog-detail/domain/catalog-detail.entity';
 import { getCurrentBalanceController } from '../../../../features/balance/controller/balance.controller';
 import ProductImage from '../../../shared/presentation/components/molecules/ProductImage';
+import { postCheckoutProduct } from '../../../shared/presentation/store/actions/catalog.action';
 
 export default function Detail({ params }: { params: Promise<{ id: string }> }) {
 	const { id } = use(params);
-	// const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
 	// console.log('balance', balance);
 	const [busy, setBusy] = useState(false);
@@ -60,6 +61,17 @@ export default function Detail({ params }: { params: Promise<{ id: string }> }) 
 		fetchData();
 	}, [])
 
+	const handleCheckoutProduct = async (id: string) => {
+		if (id) {
+			setBusy(true)
+			dispatch(postCheckoutProduct({ id }) as any)
+				.unwrap()
+				.finally(() => {
+					setBusy(false)
+					setDone(true);
+				})
+		}
+	}
 
 	return (
 		<>
@@ -150,7 +162,7 @@ export default function Detail({ params }: { params: Promise<{ id: string }> }) 
 							<button
 								className="primary-button buy"
 								disabled={busy || !!done}
-								onClick={() => { }}
+								onClick={() => handleCheckoutProduct(data?.id || '')}
 							>
 								{busy ? (
 									<>

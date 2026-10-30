@@ -6,8 +6,12 @@ export interface GetAllProductsFilterInterface {
     sort?: string
 }
 
-export type GetAllProductsFilterType = GetAllProductsFilterInterface;
+export interface CheckoutProductPayloadInterface {
+    id: string;
+}
+
 
 export interface CatalogRepositoryInterface {
     getAllProducts: (filter: GetAllProductsFilterInterface) => Promise<CatalogType[]>
+    checkoutProduct: (payload: CheckoutProductPayloadInterface) => Promise<void>
 }

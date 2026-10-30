@@ -1,5 +1,5 @@
 import { CatalogType } from "../../domain/catalog.entity";
-import { CatalogRepositoryInterface, GetAllProductsFilterInterface } from "../../usecase/catalog.repository.interface";
+import { CatalogRepositoryInterface, CheckoutProductPayloadInterface, GetAllProductsFilterInterface } from "../../usecase/catalog.repository.interface";
 import { GetAllProductsResponse } from "./catalog.dto";
 import { catalogMapper } from "./catalog.mapper";
 
@@ -14,4 +14,18 @@ export class ApiCatalogRepository implements CatalogRepositoryInterface {
         return result.data.map(catalogMapper.toDomain)
     }
 
+    async checkoutProduct(payload: CheckoutProductPayloadInterface): Promise<void> {
+        const url = `${process.env.NEXT_PUBLIC_BASE_API_URL}/checkout`
+        const res = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                product_id: payload.id
+            }),
+        })
+
+        return res.json()
+    }
 }

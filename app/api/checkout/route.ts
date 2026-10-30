@@ -2,6 +2,9 @@ import { NextResponse } from 'next/server';
 
 
 export async function POST(request: Request): Promise<Response> {
+	// Simulate API delay (2 seconds)
+	await new Promise((resolve) => setTimeout(resolve, 2000));
+
 	const body = await request.json();
 	const product_id = body?.product_id ?? "";
 	const price = body?.price ?? "";
