@@ -3,7 +3,7 @@ import InputSearch from "../InputSearch";
 
 describe("InputSearch", () => {
 	it("should render correctly", () => {
-		const { container } = render(<InputSearch value="" className="" /> >);
+		const { container } = render(<InputSearch value="" className="" />);
 		expect(container).toBeInTheDocument();
 	});
 

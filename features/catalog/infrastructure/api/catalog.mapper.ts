@@ -8,7 +8,7 @@ export const catalogMapper = {
             id,
             name: dto.name,
             brand: dto.brand,
-            category: dto.type,
+            type: dto.type,
             storage: {
                 capacity: parseInt(dto.storage),
                 unit: "GB"
