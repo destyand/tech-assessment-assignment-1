@@ -11,6 +11,8 @@ import { getCurrentUserController } from "../features/user/controller/user.contr
 import { getCurrentBalanceController } from "../features/balance/controller/balance.controller";
 import Catalog from "./shared/presentation/components/Catalog";
 
+export const dynamic = 'force-dynamic';
+
 export default async function Dashboard() {
 	const user = await getCurrentUserController();
 	const balance = await getCurrentBalanceController();

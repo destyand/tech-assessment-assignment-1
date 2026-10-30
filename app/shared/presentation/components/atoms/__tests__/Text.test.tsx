@@ -3,7 +3,7 @@ import Text from "../Text";
 
 describe("Text", () => {
 	it("should render correctly", () => {
-		const { container } = render(<Text className="">Text Content</Text> >);
+		const { container } = render(<Text className="">Text Content</Text>);
 		expect(container).toBeInTheDocument();
 	});
 

@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
 import { mocks } from '../mocks';
 
-export async function GET(request: Request, { params }: { params: { id: string } }): Promise<Response> {
-	const id = request.url.split("/").at(-1) ?? "";
+export async function GET(request: Request, { params }: { params: Promise<{ id: string }> }): Promise<Response> {
+	const { id } = await params;
 	const data = mocks.find(x => x.id.toString() === id.toString()) ?? null;
 	if (id) {
 		return NextResponse.json({
