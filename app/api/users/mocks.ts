@@ -1,7 +1,7 @@
 export const mocks = {
 	id: 1,
-	first_name: 'Dilan',
-	last_name: 'Morgan',
-	email: 'dilan.1995@email.com',
+	first_name: 'Gibran',
+	last_name: 'Subianto',
+	email: 'gibran.subianto@email.com',
 	membership: 'Orbit Plus',
 }
